@@ -4,4 +4,6 @@
  * Jika deploy, cukup ubah URL di sini.
  */
 
-export const API_URL = 'http://localhost:5000/api';
+
+// export const API_URL = 'http://localhost:5000/api';
+export const API_URL = 'https://myidegue-api.vercel.app';
