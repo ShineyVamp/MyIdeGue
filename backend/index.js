@@ -60,6 +60,14 @@ app.get('/', (req, res) => {
 });
 
 // Jalankan Server
-app.listen(port, () => {
-    console.log(`[SERVER] Running on port ${port}`);
-});
+//    app.listen(port, () => {
+//        console.log(`[SERVER] Running on port ${port}`);
+//    });
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running locally on port ${PORT}`);
+    });
+}
+
+module.exports = app;
