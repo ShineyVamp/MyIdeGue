@@ -19,7 +19,7 @@
     "express": "*",
     "jsonwebtoken": "*",
     "multer": "*",
-    "mysql2": "*",
+    "mysql2": "^3.15.3",
     "nodemon": "*"
   }
 }
