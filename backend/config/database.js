@@ -12,7 +12,7 @@ const db = mysql.createPool({
     queueLimit: 0,
     ssl: {
         minVersion: 'TLSv1.2',
-        rejectUnauthorized: true
+        rejectUnauthorized: false
     }
 });
 
@@ -26,3 +26,4 @@ db.getConnection((err, connection) => {
 });
 
 module.exports = db;
+
