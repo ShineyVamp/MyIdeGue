@@ -120,7 +120,7 @@ const CreatePostModal = ({ isOpen, onClose, onPost, currentUser }) => {
           <X size={20} />
         </button>
 
-        <h2 className="text-center font-black text-xl mb-10 uppercase tracking-widest">KIRIM IDE KAMU</h2>
+        <h2 className="text-center font-black text-xl mb-10 uppercase tracking-widest">Send Your Idea</h2>
 
         {/* User Info */}
         <div className="flex items-start gap-5 mb-6">
@@ -150,7 +150,7 @@ const CreatePostModal = ({ isOpen, onClose, onPost, currentUser }) => {
           <textarea 
             value={content} 
             onChange={(e) => setContent(e.target.value)} 
-            placeholder="Ketik idemu disini........." 
+            placeholder="Write your idea here!" 
             className="w-full h-32 resize-none p-4 text-base bg-transparent focus:outline-none" 
           />
         </div>
@@ -181,7 +181,7 @@ const CreatePostModal = ({ isOpen, onClose, onPost, currentUser }) => {
         <div className="flex items-center justify-between pt-2">
           <label className={`p-3 hover:bg-gray-100 rounded-2xl border-2 border-black cursor-pointer flex items-center gap-2 ${uploading ? 'opacity-50 cursor-wait' : ''}`}>
             <ImageIcon size={20} />
-            <span className="text-xs font-bold">Tambah Gambar</span>
+            <span className="text-xs font-bold">Add Picture</span>
             <input 
                 type="file" 
                 accept="image/*" 
@@ -197,7 +197,7 @@ const CreatePostModal = ({ isOpen, onClose, onPost, currentUser }) => {
             disabled={!content.trim() || uploading} 
             className="bg-white text-black text-xs font-black px-14 py-4 rounded-full border-2 border-gray-100 uppercase disabled:opacity-50 hover:bg-gray-50 active:scale-95 transition-all shadow-sm"
           >
-            Kirim
+            Send!
           </button>
         </div>
       </div>
