@@ -173,6 +173,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, currentUser, reportCount =
             </div>
           </div>
         )}
+      </div>
     </aside>
 
     {showLogoutConfirm && (
