@@ -147,7 +147,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, currentUser, reportCount =
             e.stopPropagation();
             setShowLogoutMenu(!showLogoutMenu);
           }}
-          className="p-2 text-gray-300 hover:text-black hover:bg-gray-200 rounded-full transition-colors"
+          className="p-2 text-black-300 hover:text-black hover:bg-gray-200 rounded-full transition-colors"
         >
           <MoreVertical size={20} />
         </button>
