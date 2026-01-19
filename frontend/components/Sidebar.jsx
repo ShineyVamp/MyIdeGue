@@ -153,19 +153,25 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, currentUser, reportCount =
         </button>
 
         {showLogoutMenu && (
-          <div className="absolute bottom-full left-0 w-full mb-2 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-bottom-2">
-            <button
-              onClick={(e) => {
-                  e.stopPropagation();
+          <>
+            <div 
+              className="fixed inset-0 z-[45]" 
+              onClick={() => setShowLogoutMenu(false)}
+            />
+            <div className="absolute bottom-full left-0 w-full mb-2 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-bottom-2 z-[50]">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation(); // Mencegah klik tombol tembus ke overlay
                   setShowLogoutMenu(false);
                   setShowLogoutConfirm(true); 
-              }}
-              className="w-full text-left px-4 py-3 text-red-500 font-bold hover:bg-red-50 flex items-center gap-2"
-            >
-              <LogOut size={18} />
-              Log out
-            </button>
-          </div>
+                }}
+                className="w-full text-left px-4 py-3 text-red-500 font-bold hover:bg-red-50 flex items-center gap-2"
+              >
+                <LogOut size={18} />
+                Log out
+              </button>
+            </div>
+          </>
         )}
       </div>
     </aside>
