@@ -15,7 +15,7 @@ const RightSidebar = ({ posts = [], onPostClick, onVote, currentUser, onUserClic
       <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100/50 hover:shadow-md transition-shadow duration-300">
         <h2 className="font-black text-lg mb-8 uppercase tracking-wide text-center text-black">HALL OF FAME</h2>
         <div className="space-y-8">
-          {hallOfFame.length === 0 && <p className="text-center text-gray-400 text-xs">Belum ada data bulan ini.</p>}
+          {hallOfFame.length === 0 && <p className="text-center text-gray-400 text-xs">Empty</p>}
           
           {hallOfFame.map((post, index) => {
             const user = {
@@ -106,7 +106,7 @@ const RightSidebar = ({ posts = [], onPostClick, onVote, currentUser, onUserClic
               ))
           ) : (
               <div className="text-center py-4">
-                  <p className="text-gray-400 text-sm font-medium">Belum ada topik panas bulan ini 🥶</p>
+                  <p className="text-gray-400 text-sm font-medium">Feeling Cold here</p>
               </div>
           )}
         </div>
