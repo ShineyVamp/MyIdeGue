@@ -120,13 +120,15 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, currentUser, reportCount =
 
       {/* =============== PROFILE =============== */}
       <div
-        className={`relative flex items-center justify-between mt-auto cursor-pointer group p-2.5 rounded-2xl transition-all duration-200 -ml-2 -mr-2 border border-transparent hover:border-gray-100
+        className={`relative flex items-center justify-between mt-auto group p-2.5 rounded-2xl transition-all duration-200 -ml-2 -mr-2 border border-transparent hover:border-gray-100
           ${activeTab === 'profile' ? 'bg-gray-50 border-gray-100' : 'hover:bg-gray-50'}`}
-        onClick={() => setActiveTab('profile')}
         ref={menuRef}
       >
-
-        <div className="flex items-center space-x-3">
+        {/* BAGIAN KIRI: Klik di sini tetap ke Profile */}
+        <div 
+          className="flex items-center space-x-3 flex-1 cursor-pointer"
+          onClick={() => setActiveTab('profile')}
+        >
           <img
             src={currentUser.avatar || "https://api.dicebear.com/7.x/avataaars/svg?seed=Guest"} 
             alt="Profile"
@@ -142,30 +144,38 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, currentUser, reportCount =
           </div>
         </div>
 
+        {/* TOMBOL TITIK TIGA (Trigger) */}
         <button
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Agar tidak men-trigger ke profile saat klik titik tiga
             setShowLogoutMenu(!showLogoutMenu);
           }}
-          className="p-2 text-black-300 hover:text-black hover:bg-gray-200 rounded-full transition-colors"
+          className="p-2 text-black-300 hover:text-black hover:bg-gray-200 rounded-full transition-colors cursor-pointer"
         >
           <MoreVertical size={20} />
         </button>
 
+        {/* LOGOUT MENU & OVERLAY */}
         {showLogoutMenu && (
           <>
+            {/* 1. OVERLAY (Click Outside) - DENGAN STOP PROPAGATION */}
             <div 
-              className="fixed inset-0 z-[45]" 
-              onClick={() => setShowLogoutMenu(false)}
+                className="fixed inset-0 z-[45] cursor-default"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setShowLogoutMenu(false);
+                }}
             />
+
+            {/* 2. MENU */}
             <div className="absolute bottom-full left-0 w-full mb-2 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-bottom-2 z-[50]">
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // Mencegah klik tombol tembus ke overlay
+                  e.stopPropagation();
                   setShowLogoutMenu(false);
                   setShowLogoutConfirm(true); 
                 }}
-                className="w-full text-left px-4 py-3 text-red-500 font-bold hover:bg-red-50 flex items-center gap-2"
+                className="w-full text-left px-4 py-3 text-red-500 font-bold hover:bg-red-50 flex items-center gap-2 cursor-pointer"
               >
                 <LogOut size={18} />
                 Log out
